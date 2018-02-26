@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TypeScript</title>
+    <script src="node_modules/systemjs/dist/system.js"></script>
 </head>
 <body>
-hello
-<h1>tsc после 'tsc --init' хранит все переменные всех '*.ts' в общем неймспейсе?</h1>
-<script src="./app.js"></script>
+<script>
+    SystemJS.config({
+        packages: {
+            '/': {
+                defaultExtention: 'js'
+            }
+        }
+    });
+    SystemJS.import('app.js');
+</script>
+<!-- <script src="./app.js"></script> -->
 <!-- <script src="./s2/exercise_s2.js"></script> -->
 <!-- <script src="./s4/exercise_s4.js"></script> -->
 <!-- <script src="./s5/exercise_s5.js"></script> -->

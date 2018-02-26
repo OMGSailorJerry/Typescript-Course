@@ -1,9 +1,7 @@
-var MyMath;
-(function (MyMath) {
-    var PI = 3.14;
-    function claculateTriang(width, length) {
-        return width * length / 2;
-    }
-    MyMath.claculateTriang = claculateTriang;
-})(MyMath || (MyMath = {}));
+// namespace MyMath {
+//     const PI = 3.14;
+//     export function claculateTriang(width: number, length: number) {
+//         return width * length / 2;
+//     }
+// }
 //# sourceMappingURL=rectMath.js.map

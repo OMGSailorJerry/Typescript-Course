@@ -1,44 +1,44 @@
-function greet(person) {
-    console.log("hello, " + person.firstName);
+// Simple Generic
+function echo(data) {
+    return data;
 }
-function changeName(person) {
-    person.firstName = 'Anna';
+;
+console.log(echo('Oleg'));
+console.log(echo(27));
+console.log(echo({ name: 'Oleg', age: 27 }));
+// Better Generic
+function BetterEcho(data) {
+    return data;
 }
-var person = {
-    firstName: 'Oleg',
-    hobbies: ['Coocking', 'Sports'],
-    greet: function (lastName) {
-        console.log("Hi, I am " + this.firstName + " " + lastName);
+;
+console.log(BetterEcho('Oleg').length);
+console.log(BetterEcho(27));
+console.log(BetterEcho({ name: 'Oleg', age: 27 }).name);
+//Builtin Generic
+var testResult = [1.94, 2.33];
+testResult.push(-2.99);
+// testResult.push('-2.99');
+console.log(testResult);
+// Arrays 
+function printAll(args) {
+    args.forEach(function (el) { return console.log(el); });
+}
+;
+printAll(['Apple', 'Banana']);
+// Generic Types
+var echo2 = BetterEcho;
+console.log(echo2('Something'));
+// Generic Classes
+var SimpleMath = /** @class */ (function () {
+    function SimpleMath() {
     }
-};
-// greet({firstName: 'Oleg', age: 32});
-changeName(person);
-greet(person);
-person.greet('Mykhailov');
-var Person = /** @class */ (function () {
-    function Person() {
-    }
-    Person.prototype.greet = function (lastName) {
-        console.log("Hi, I am " + this.firstName + " " + lastName);
+    SimpleMath.prototype.calculate = function () {
+        return +this.baseValue * +this.multiplayValue;
     };
-    return Person;
+    return SimpleMath;
 }());
-var myPerson = new Person();
-myPerson.firstName = 'Sonya';
-myPerson.lastName = 'Mykhailova';
-greet(myPerson);
-myPerson.greet(myPerson.lastName);
-var myDoubleFunction;
-myDoubleFunction = function (value1, value2) {
-    return (value1 + value2) * 2;
-};
-console.log(myDoubleFunction(10, 20));
-var oldPerson = {
-    age: 32,
-    firstName: 'Oleg',
-    greet: function (lastName) {
-        console.log('Hello!');
-    }
-};
-console.log(oldPerson);
+var simpleMath = new SimpleMath();
+simpleMath.baseValue = '10';
+simpleMath.multiplayValue = 20;
+console.log(simpleMath.calculate());
 //# sourceMappingURL=app.js.map

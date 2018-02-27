@@ -8,8 +8,12 @@
     <script src="node_modules/systemjs/dist/system.js"></script>
 </head>
 <body>
+    <div id="app">jQuery typings test</div>
 <script>
     SystemJS.config({
+        map: {
+            'jQuery': 'node_modules/jquery/dist/jquery.min.js'
+        },
         packages: {
             '/': {
                 defaultExtention: 'js'
